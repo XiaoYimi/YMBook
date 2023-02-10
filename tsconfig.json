@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    /** 解决 node 内置模块变量名的报错提示 */
+    "types": ["node"],
+
+    /** 解决 别名引用报错信息 */
+    "baseUrl": "./",
+    "paths": {
+      /** 解决 TS 别名引用问题；切记在 vite.config.ts 一同配置 */
+      "@/*": ["src/*"],
+      "#/*": ["types/*"]
+    }
+  },
+  "include": ["types/**/*", "src/**/*"]
+  // "references": [{ "path": "./tsconfig.node.json" }]
+}
