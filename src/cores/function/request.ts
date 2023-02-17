@@ -4,7 +4,8 @@ import type {
   AxiosResponseStructure,
   AxiosStatic,
 } from '#/config/request';
-import { UserStore } from '@/store/user';
+
+import { UserStore } from '@/store/lib/user';
 import axios from 'axios';
 
 /** 项目请求地址 */
@@ -21,8 +22,8 @@ export class WebRequest {
   public userConf: AxiosRequestConfig;
 
   /** 初始化 axios 实例 */
-  constructor(axios: AxiosStatic, defConf: AxiosRequestConfig = {}) {
-    this.instance = axios;
+  constructor(http: AxiosStatic, defConf: AxiosRequestConfig = {}) {
+    this.instance = http.create(defConf);
     this.defConf = defConf;
     this.userConf = {};
 
